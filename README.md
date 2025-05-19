@@ -36,20 +36,6 @@ Sistem pemesanan lapangan golf berbasis Java yang mendukung berbagai metode pemb
 * Java Standard Edition (Java SE)
 * Berbasis OOP (Object-Oriented Programming)
 
-## 📦 Cara Menjalankan
-
-1. **Kompilasi Semua File Java:**
-
-   ```bash
-   javac *.java
-   ```
-
-2. **Jalankan Program:**
-
-   ```bash
-   java Main
-   ```
-
 ## 🧩 Penjelasan Kelas
 
 | Kelas                 | Deskripsi                                        |
