@@ -22,6 +22,17 @@ public class Main {
         System.out.println("Hello Mr/Ms " + userName);
         System.out.println("Your email: " + userEmail);
         System.out.println();
+
+        System.out.print("Are you a VIP member? (yes/no): ");
+        String vipInput = scanner.nextLine();
+        boolean isVip = vipInput.equalsIgnoreCase("yes");
+
+        Member member;
+        if (isVip) {
+        member = new VIPMember(userName, userEmail, 0.2); // diskon 20%
+        } else {
+        member = new Member(userName, userEmail);
+        }
         
         // Create a list to store golf courses
         List<GolfCourse> golfCourses = new ArrayList<>();
@@ -250,6 +261,7 @@ public class Main {
                 System.out.println("Pembayaran berhasil. Terima Kasih Mr/Ms " + userName);
                 break;
             case 2:
+                // Credit Card (cek apakah VIP, lalu kasih diskon)
                 System.out.print("\nEnter your Credit Card Number: ");
                 String cardNumber = scanner.nextLine();
                 System.out.print("Enter Expiry Date (MM/YY): ");
@@ -262,11 +274,20 @@ public class Main {
                 System.out.println("...");
                 System.out.println("...");
                 System.out.println("...");
-                System.out.println("Payment successful! Terima Kasih Mr/Ms " + userName);
-                break;
-            default:
-                System.out.println("Invalid payment method selected.");
+                
+                if (isVip) {
+            double discountedTotal = member.calculateTotal(totalPayment);
+            System.out.printf("You are a VIP member! 20%% discount applied.\nDiscounted Total: Rp%,.0f\n", discountedTotal);
+            totalPayment = discountedTotal;
+        } else {
+            System.out.println("No discount applied for regular members.");
         }
+
+        break;
+
+    default:
+        System.out.println("Invalid payment method selected.");
+}
 
         // Close the scanner
         scanner.close();
