@@ -50,8 +50,11 @@ public class GolfCourse {
     }
 
     public void addHole(int number, int distance, int par) {
-        holeList.add(new Hole(number, distance, par));
+    if (holeList.size() >= 18) {
+        throw new IllegalStateException("Cannot add more than 18 holes.");
     }
+    holeList.add(new Hole(number, distance, par));
+}
 
     public void addFacility(String facility) {
         facilities.add(facility);
