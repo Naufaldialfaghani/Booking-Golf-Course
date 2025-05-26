@@ -6,6 +6,10 @@ public class Member {
         this.name = name;
         this.email = email;
     }
+    
+    public double calculateTotal(double originalPrice) {
+        return originalPrice;
+    }
 
     public String getName() {
         return name;
@@ -14,4 +18,5 @@ public class Member {
     public String getEmail() {
         return email;
     }
+
 }
