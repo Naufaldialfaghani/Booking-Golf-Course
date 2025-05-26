@@ -17,7 +17,7 @@ public class GolfCourse {
         this.coursePrice = coursePrice;
         this.drivingRangePrice = drivingRangePrice;
         this.drivingRangeBays = drivingRangeBays;
-        this.holeList = new ArrayList<>();       // ✅ inisialisasi di sini
+        this.holeList = new ArrayList<>();
         this.facilities = new ArrayList<>();
     }
 
