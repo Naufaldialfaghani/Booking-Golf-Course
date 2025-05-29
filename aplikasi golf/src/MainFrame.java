@@ -389,7 +389,7 @@ public class MainFrame extends JFrame {
         gbc.gridx = 1;
         JPanel activityPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         activityPanel.setOpaque(false);
-        golfOption = new JRadioButton("Bermain Golf");
+        golfOption = new JRadioButton("Turun Lapangan");
         golfOption.setOpaque(false);
         golfOption.setForeground(new Color(25, 25, 112));
         rangeOption = new JRadioButton("Driving Range");
@@ -577,11 +577,11 @@ public class MainFrame extends JFrame {
         orderedItemsArea.setEditable(false);
         orderedItemsArea.setFont(new Font("Monospaced", Font.PLAIN, 12));
         orderedItemsArea.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
-        orderedItemsArea.setOpaque(false); // Penting: Buat text area transparan
+        orderedItemsArea.setOpaque(false); 
         orderedItemsArea.setForeground(new Color(25, 25, 112));
         JScrollPane orderedItemsScrollPane = new JScrollPane(orderedItemsArea);
-        orderedItemsScrollPane.setOpaque(false); // Penting: Buat scroll pane transparan
-        orderedItemsScrollPane.getViewport().setOpaque(false); // Penting: Buat viewport transparan
+        orderedItemsScrollPane.setOpaque(false); 
+        orderedItemsScrollPane.getViewport().setOpaque(false); 
         contentPanel.add(orderedItemsScrollPane, gbc);
 
         // Enable/disable menu list
@@ -674,66 +674,82 @@ public class MainFrame extends JFrame {
         JLabel summaryTitle = new JLabel("Ringkasan Pesanan Anda:", SwingConstants.LEFT);
         summaryTitle.setFont(new Font("Arial", Font.BOLD, 18));
         summaryTitle.setForeground(new Color(25, 25, 112));
+        gbc.gridx = 0;
+         gbc.gridwidth = 2; // Agar judul tetap lebar penuh
+        gbc.anchor = GridBagConstraints.WEST;
         panel.add(summaryTitle, gbc);
 
+         gbc.gridwidth = 1; // Kembali ke 1 kolom untuk label dan nilai
+         gbc.anchor = GridBagConstraints.EAST; // Label rata kanan
         gbc.gridy++;
         JLabel courseLabel = new JLabel("Lapangan Golf:", SwingConstants.RIGHT);
         courseLabel.setForeground(new Color(25, 25, 112));
         panel.add(courseLabel, gbc);
         gbc.gridx = 1;
+         gbc.anchor = GridBagConstraints.WEST; // Nilai rata kiri
         JLabel courseNameLabel = new JLabel();
         courseNameLabel.setForeground(new Color(25, 25, 112));
         panel.add(courseNameLabel, gbc);
 
         gbc.gridx = 0;
         gbc.gridy++;
+         gbc.anchor = GridBagConstraints.EAST; // Label rata kanan
         JLabel activityLabel = new JLabel("Aktivitas:", SwingConstants.RIGHT);
         activityLabel.setForeground(new Color(25, 25, 112));
         panel.add(activityLabel, gbc);
         gbc.gridx = 1;
+         gbc.anchor = GridBagConstraints.WEST; // Nilai rata kiri
         JLabel activityValueLabel = new JLabel();
         activityValueLabel.setForeground(new Color(25, 25, 112));
         panel.add(activityValueLabel, gbc);
 
         gbc.gridx = 0;
         gbc.gridy++;
+         gbc.anchor = GridBagConstraints.EAST; // Label rata kanan
         JLabel timeBookingLabel = new JLabel("Waktu Booking:", SwingConstants.RIGHT);
         timeBookingLabel.setForeground(new Color(25, 25, 112));
         panel.add(timeBookingLabel, gbc);
         gbc.gridx = 1;
+         gbc.anchor = GridBagConstraints.WEST; // Nilai rata kiri
         JLabel timeValueLabel = new JLabel();
         timeValueLabel.setForeground(new Color(25, 25, 112));
         panel.add(timeValueLabel, gbc);
 
         gbc.gridx = 0;
         gbc.gridy++;
+         gbc.anchor = GridBagConstraints.EAST; // Label rata kanan
         JLabel bookingFeeTextLabel = new JLabel("Biaya Booking:", SwingConstants.RIGHT);
         bookingFeeTextLabel.setForeground(new Color(25, 25, 112));
         panel.add(bookingFeeTextLabel, gbc);
         gbc.gridx = 1;
+         gbc.anchor = GridBagConstraints.WEST; // Nilai rata kiri
         bookingFeeLabel = new JLabel();
         bookingFeeLabel.setForeground(new Color(25, 25, 112));
         panel.add(bookingFeeLabel, gbc);
 
         gbc.gridx = 0;
         gbc.gridy++;
+         gbc.anchor = GridBagConstraints.EAST; // Label rata kanan
         JLabel foodTotalTextLabel = new JLabel("Total Makanan/Minuman:", SwingConstants.RIGHT);
         foodTotalTextLabel.setForeground(new Color(25, 25, 112));
         panel.add(foodTotalTextLabel, gbc);
         gbc.gridx = 1;
+         gbc.anchor = GridBagConstraints.WEST; // Nilai rata kiri
         foodTotalLabel = new JLabel();
         foodTotalLabel.setForeground(new Color(25, 25, 112));
         panel.add(foodTotalLabel, gbc);
 
         gbc.gridx = 0;
         gbc.gridy++;
+         gbc.anchor = GridBagConstraints.EAST; // Label rata kanan
         JLabel finalTotalTextLabel = new JLabel("Total Pembayaran:", SwingConstants.RIGHT);
         finalTotalTextLabel.setForeground(new Color(25, 25, 112));
         panel.add(finalTotalTextLabel, gbc);
         gbc.gridx = 1;
+         gbc.anchor = GridBagConstraints.WEST; // Nilai rata kiri
         finalTotalLabel = new JLabel();
         finalTotalLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        finalTotalLabel.setForeground(new Color(0, 128, 0)); 
+         finalTotalLabel.setForeground(new Color(0, 128, 0)); // Dark Green
         panel.add(finalTotalLabel, gbc);
 
         // Payment Method Section
