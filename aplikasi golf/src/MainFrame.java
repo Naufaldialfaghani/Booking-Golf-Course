@@ -55,7 +55,8 @@ public class MainFrame extends JFrame {
 
         cardLayout = new CardLayout();
         // Inisialisasi mainPanel sebagai BackgroundPanel
-        mainPanel = new BackgroundPanel("c:/Users/Naufaldi Alfaghani/Pictures/From IOS/GUI Golf.png");
+        mainPanel = new BackgroundPanel("https://drive.google.com/uc?export=download&id=192M_xfSP2hcqagJ_YyqKF0G0of6Z1TY2\r\n" + //
+                        "");
         mainPanel.setLayout(cardLayout);
         add(mainPanel);
 
