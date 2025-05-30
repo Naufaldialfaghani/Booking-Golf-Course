@@ -1,16 +1,19 @@
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.IOException;
+import java.net.URL;
+import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
-class BackgroundPanel extends JPanel {
+public class BackgroundPanel extends JPanel {
     private Image backgroundImage;
 
-    public BackgroundPanel(String imagePath) {
+    public BackgroundPanel(String imageUrl) {
         try {
-            backgroundImage = new ImageIcon(imagePath).getImage();
-        } catch (Exception e) {
-            System.err.println("Error loading background image: " + imagePath);
+            URL url = new URL(imageUrl);
+            backgroundImage = ImageIO.read(url);
+        } catch (IOException e) {
             e.printStackTrace();
-            backgroundImage = null;
         }
     }
 
@@ -18,25 +21,7 @@ class BackgroundPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         if (backgroundImage != null) {
-            // Menggambar gambar agar mengisi seluruh panel, menjaga aspek rasio
-            int panelWidth = getWidth();
-            int panelHeight = getHeight();
-            int imageWidth = backgroundImage.getWidth(this);
-            int imageHeight = backgroundImage.getHeight(this);
-
-            if (imageWidth > 0 && imageHeight > 0) {
-                double scaleX = (double) panelWidth / imageWidth;
-                double scaleY = (double) panelHeight / imageHeight;
-                double scale = Math.max(scaleX, scaleY); // Mengisi seluruh panel
-
-                int scaledWidth = (int) (imageWidth * scale);
-                int scaledHeight = (int) (imageHeight * scale);
-
-                int x = (panelWidth - scaledWidth) / 2;
-                int y = (panelHeight - scaledHeight) / 2;
-
-                g.drawImage(backgroundImage, x, y, scaledWidth, scaledHeight, this);
-            }
+            g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
         }
     }
 }
